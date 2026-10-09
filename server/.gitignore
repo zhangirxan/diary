@@ -1,0 +1,5 @@
+.dart_tool/
+build/
+# рабочий файл с поездками создаётся из trips.sample.json при первом запуске
+data/trips.json
+data/*.tmp
