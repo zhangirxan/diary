@@ -24,7 +24,7 @@
 Нужен Flutter SDK (в нём есть Dart). Проверено на Flutter 3.47 / Dart 3.13.
 
 ```bash
-# 1. Сервер — http://localhost:8080
+# 1. Сервер — http://localhost:8095
 cd server
 dart pub get
 dart run bin/server.dart
@@ -38,14 +38,14 @@ flutter run -d chrome
 При первом запуске сервер копирует пример `data/trips.sample.json` (15 поездок за 1–3 октября 2026)
 в рабочий `data/trips.json` — туда же сохраняются новые поездки. Чтобы начать заново, удалите `data/trips.json`.
 
-Настройки сервера — переменные окружения: `PORT` (8080), `DATA_FILE` (`data/trips.json`), `TZ_OFFSET` (`+05:00`).
+Настройки сервера — переменные окружения: `PORT` (8095), `DATA_FILE` (`data/trips.json`), `TZ_OFFSET` (`+05:00`).
 
 Адрес API для клиента задаётся при сборке:
 
 ```bash
-flutter run -d chrome --dart-define=API_URL=http://localhost:8080   # по умолчанию
-flutter run --dart-define=API_URL=http://10.0.2.2:8080              # эмулятор Android
-flutter run --dart-define=API_URL=http://192.168.1.10:8080          # телефон в той же сети (IP компьютера)
+flutter run -d chrome --dart-define=API_URL=http://localhost:8095   # по умолчанию
+flutter run --dart-define=API_URL=http://10.0.2.2:8095              # эмулятор Android
+flutter run --dart-define=API_URL=http://192.168.1.10:8095          # телефон в той же сети (IP компьютера)
 ```
 
 Тесты:
@@ -75,7 +75,7 @@ cd app && flutter test
 Ошибка валидации — все поля сразу, чтобы форма могла подсветить каждое:
 
 ```bash
-curl -X POST localhost:8080/api/trips -d '{"id":"x","start":"2026-10-04T11:00:00+05:00","end":"2026-10-04T10:30:00+05:00","amount":0,"payment":"cash","commission":0}'
+curl -X POST localhost:8095/api/trips -d '{"id":"x","start":"2026-10-04T11:00:00+05:00","end":"2026-10-04T10:30:00+05:00","amount":0,"payment":"cash","commission":0}'
 # 422 {"error":"Ошибка в данных","fields":{"end":"Окончание должно быть позже начала","amount":"Сумма должна быть больше 0"}}
 ```
 

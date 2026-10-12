@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 /// Адрес сервера задаётся при сборке:
-/// `flutter run --dart-define=API_URL=http://10.0.2.2:8080`.
+/// `flutter run --dart-define=API_URL=http://10.0.2.2:8095`.
 const defaultApiUrl = String.fromEnvironment(
   'API_URL',
-  defaultValue: 'http://localhost:8080',
+  defaultValue: 'http://localhost:8095',
 );
 
 class Trip {

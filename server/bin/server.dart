@@ -5,12 +5,12 @@ import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart' as io;
 
 /// Настройки через переменные окружения:
-///   PORT       — порт (по умолчанию 8080)
+///   PORT       — порт (по умолчанию 8095)
 ///   DATA_FILE  — JSON с поездками (по умолчанию data/trips.json)
 ///   TZ_OFFSET  — часовой пояс водителя (по умолчанию +05:00)
 Future<void> main() async {
   final env = Platform.environment;
-  final port = int.parse(env['PORT'] ?? '8080');
+  final port = int.parse(env['PORT'] ?? '8095');
   final offset = parseOffset(env['TZ_OFFSET'] ?? '+05:00');
   final file = File(env['DATA_FILE'] ?? 'data/trips.json');
   // Рабочий файл не в git: при первом запуске копируем пример.
